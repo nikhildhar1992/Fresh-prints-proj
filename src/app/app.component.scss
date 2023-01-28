@@ -1,0 +1,31 @@
+.navbar {
+    display: inline-block;
+    position: relative;
+    text-align: right;
+    width: 100%;
+    background-color: #f1eeee;
+    nav {
+        padding: 20px 30px;
+        display: flex;
+        flex-direction: row-reverse;
+        a {
+            margin-right: 20px;
+            color: grey;
+            text-decoration: none;
+            position: relative;
+            cursor: pointer;
+        }
+        .active {
+            &::after {
+                position: absolute;
+                content: "";
+                width: 58px;
+                background: blue;
+                height: 2px;
+                left: -4px;
+                top: 35px;
+            }
+        }
+
+    }
+}

@@ -1,0 +1,36 @@
+<div class="home">
+    <div class="search">
+        <div class="search-title">
+            Search Github User
+        </div>
+        <div class="search-input">
+            <img src="assets/images/search-icon.PNG">
+            <input type="text" [(ngModel)]="profileName" >
+        </div>
+        <div (click)="searchData()" class="search-button">
+            <button [disabled]="!profileName" >Search</button>
+        </div>
+    </div>
+
+    <div class="profiles" *ngIf="profileName && profileName.length && search" >
+        <div class="search-text">Search Results</div>
+        <ng-container *ngIf="profileData && profileData.length; else noResult">
+            <div class="profile" *ngFor="let item of profileData" (click)="goToProfile(item)">
+                <div>
+                    <span class="first-span">User Image</span>
+                    <img [src]="item.img">
+                </div>
+                <div>
+                    <span class="first-span">User Name</span>
+                    <span>{{item.name}}</span>
+                </div>
+            </div>
+        </ng-container>
+        <ng-template #noResult>
+            <div *ngIf="search">
+                No Results found
+            </div>
+        </ng-template>
+    </div>
+    
+</div>

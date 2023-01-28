@@ -1,0 +1,10 @@
+<div class="profile" *ngIf="profile && profile.name">
+    <div>
+        <span class="first-span">User Image</span>
+        <img [src]="profile.img">
+    </div>
+    <div>
+        <span class="first-span">User Name</span>
+        <span>{{profile.name}}</span>
+    </div>
+</div>

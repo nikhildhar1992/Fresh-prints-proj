@@ -1,0 +1,46 @@
+<div class="history">
+    <div class="history-title">
+        Your search history
+    </div>
+    <ng-container *ngIf="api.searchHistory && api.searchHistory.length; else noResult">
+        <div class="table-search">
+            <div class="header">
+                <span>
+                    Search term
+                </span>
+                <span>
+                    Search Results
+                </span>
+            </div>
+            <div class="body" *ngFor="let data of api.searchHistory">
+                <div>
+                    {{data['search_term']}}
+                </div>
+                <div class="profile_data">
+                    <ng-container *ngIf="data['data'] && data['data'].length; else noSearchResult">
+                        <div class="profile" *ngFor="let item of data['data']" (click)="goToProfile(item)">
+                            <div>
+                                <span class="first-span">User Image</span>
+                                <img [src]="item.img">
+                            </div>
+                            <div>
+                                <span class="first-span">User Name</span>
+                                <span>{{item.name}}</span>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <ng-template #noSearchResult>
+                        Search result not found
+                    </ng-template>
+                </div>
+                
+            </div>
+        </div>
+        <div (click)="clearData()" class="search-button">
+            <button >Clear</button>
+        </div>
+    </ng-container>
+    <ng-template #noResult>
+        No Results Found
+    </ng-template>
+</div>

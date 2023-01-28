@@ -1,0 +1,19 @@
+.profile {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background: #ccc;
+    margin-top: 10px;
+    div {
+        display: flex;
+        flex-direction: column;
+        img {
+            width: 100px;
+        }
+    }
+    .first-span {
+        margin-bottom: 10px;
+        color: #766d6d;
+    }
+}
