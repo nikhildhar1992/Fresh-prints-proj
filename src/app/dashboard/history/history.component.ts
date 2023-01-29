@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ApiService } from 'src/app/api.service';
+import { ApiService } from '../../api.service';
 
 @Component({
   selector: 'app-history',
   templateUrl: './history.component.html',
-  styleUrls: ['./history.component.scss']
+  styleUrls: ['./history.component.scss'],
 })
 export class HistoryComponent implements OnInit {
   constructor(public api: ApiService, private route: Router) {
@@ -14,7 +14,9 @@ export class HistoryComponent implements OnInit {
 
   ngOnInit() {
     if (localStorage.getItem('profile_data')) {
-      this.api.searchHistory = JSON.parse(localStorage.getItem('profile_data') || '[]');
+      this.api.searchHistory = JSON.parse(
+        localStorage.getItem('profile_data') || '[]'
+      );
     }
   }
 
